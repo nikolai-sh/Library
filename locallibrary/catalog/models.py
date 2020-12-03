@@ -1,6 +1,8 @@
 from django.db import models
 from django.db.models.deletion import SET_NULL
 
+from django.urls import reverse
+
 # Create your models here.
 class Genre(models.Model):
 
