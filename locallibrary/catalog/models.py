@@ -54,7 +54,7 @@ class BookInstance(models.Model):
         ('a', 'Available'),
         ('r', 'Reserved'),
     )
-
+    # status is a CharField that defines a choice/selection list.
     status = models.CharField(
         max_length=1,
         choices=LOAN_STATUS,
@@ -69,3 +69,4 @@ class BookInstance(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return f'{self.id} ({self.book.title})'
+
