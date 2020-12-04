@@ -80,11 +80,7 @@ class BookInstance(models.Model):
         """String for representing the Model object."""
         return f'{self.id} ({self.book.title})'
     
-    def due_back_date(self):
-        """Create a string for the BookInstance. This is required to display due_back_date in Admin."""
-        return str(self.due_back) 
-
-    due_back_date.short_description = 'due back date'
+  
 class Author(models.Model):
     """Model representing an author."""
     first_name = models.CharField(max_length=100)

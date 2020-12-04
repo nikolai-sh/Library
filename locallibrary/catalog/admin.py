@@ -38,7 +38,7 @@ class BookAdmin(admin.ModelAdmin):
 @admin.register(BookInstance) 
 class BookInstanceAdmin(admin.ModelAdmin):
     list_filter = ('status', 'due_back')
-    list_display = ('book', 'status', 'id')
+    list_display = ('book', 'status', 'due_back','id')
 
     #  Add "sections" to group related model information within the detail form
     # using fieldsets
