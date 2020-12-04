@@ -34,7 +34,7 @@ class Book(models.Model):
     
      # Foreign Key used because book can only have one language, but language can have multiple books
     # Language class has already been defined so we can specify the object above.
-    language = models.ForeignKey('Language', on_delete=SET_NULL, null=True)
+    language = models.ForeignKey('Language', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         """String for representing the Model object."""
@@ -98,10 +98,9 @@ class Author(models.Model):
 
 class Language(models.Model):
     """Model representing the language"""
-    lang = models.CharField(max_length=50, help_text='Enter a language of the book.')
+    lang = models.CharField(max_length=200, help_text='Enter natural language of the book.')
 
     def __str__(self):
         return self.lang
 
-    def get_absolute_url(self):
-        return reverse("Language_detail", kwargs={"pk": self.id})
+   
