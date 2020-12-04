@@ -89,3 +89,15 @@ class Author(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return f'{self.last_name}, {self.first_name}'
+
+# Add language model 
+
+class Language(models.Model):
+    """Model representing the language"""
+    lang = models.CharField(max_length=50, help_text='Enter a language of the book.')
+
+    def __str__(self):
+        return self.lang
+
+    def get_absolute_url(self):
+        return reverse("Language_detail", kwargs={"pk": self.id})
