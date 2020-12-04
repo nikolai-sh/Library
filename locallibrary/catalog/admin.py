@@ -21,7 +21,7 @@ admin.site.register(Author, AuthorAdmin)
 class BooksInstanceInline(admin.TabularInline):
     model = BookInstance
     extra = 0 #to have NO spare book instances 
-    
+
 # Register the Admin classes for Book using the decorator
 # this does exactly the same thing as the admin.site.register() syntax
 @admin.register(Book)
@@ -33,6 +33,8 @@ class BookAdmin(admin.ModelAdmin):
 @admin.register(BookInstance) 
 class BookInstanceAdmin(admin.ModelAdmin):
     list_filter = ('status', 'due_back')
+    list_display = ('book', 'status', 'id')
+
     #  Add "sections" to group related model information within the detail form
     # using fieldsets
     fieldsets = (

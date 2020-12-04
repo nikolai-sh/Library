@@ -46,7 +46,7 @@ class Book(models.Model):
 
     def display_genre(self):
         """Create a string for the Genre. This is required to display genre in Admin."""
-        return ', '.join(genre.name for genre in self.genre.all()[:3]) #[:3]?????
+        return ', '.join(genre.name for genre in self.genre.all()[:3]) #[:3] - one book -- multiple genre!!!
 
     display_genre.short_description = 'Genre'
 import uuid # Required for unique book instances
@@ -79,7 +79,12 @@ class BookInstance(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return f'{self.id} ({self.book.title})'
+    
+    def due_back_date(self):
+        """Create a string for the BookInstance. This is required to display due_back_date in Admin."""
+        return str(self.due_back) 
 
+    due_back_date.short_description = 'due back date'
 class Author(models.Model):
     """Model representing an author."""
     first_name = models.CharField(max_length=100)
