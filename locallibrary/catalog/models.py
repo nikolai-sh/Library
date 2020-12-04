@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.deletion import SET_NULL
+from django.db.models.fields.mixins import CheckFieldDefaultMixin
 
 from django.urls import reverse
 
@@ -31,6 +32,9 @@ class Book(models.Model):
     # Genre class has already been defined so we can specify the object above.
     genre = models.ManyToManyField(Genre, help_text='Select a genre for this book')
     
+     # Foreign Key used because book can only have one language, but language can have multiple books
+    # Language class has already been defined so we can specify the object above.
+    language = models.ForeignKey('Language', on_delete=SET_NULL, null=True)
 
     def __str__(self):
         """String for representing the Model object."""
