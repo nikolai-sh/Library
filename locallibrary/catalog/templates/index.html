@@ -14,5 +14,11 @@
     <li><strong>Copies:</strong> {{ num_instances }}</li>
     <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
     <li><strong>Authors:</strong> {{ num_authors }}</li>
+    <li><strong>Genre:</strong></li>
+        <ul>
+            {% for genre, books in genre_books.items %}
+                <li><strong>{{ genre }}</strong>: {{ books }} books</li>
+            {% endfor %}
+        </ul>
   </ul>
 {% endblock %}
