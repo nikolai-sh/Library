@@ -18,6 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('catalog/', include('catalog.urls')),
 ]
 
 #Add URL maps to redirect the base URL to our application
