@@ -17,7 +17,8 @@
     <li><strong>Genre:</strong></li>
         <ul>
             {% for genre, books in genre_books.items %}
-                <li><strong>{{ genre }}</strong>: {{ books }} books</li>
+                <!-- <li><strong>{{ genre }}</strong>: {{ books }} books</li> -->
+                <li><strong>{{ genre }}</strong>: {{ books }} book{{ books|pluralize }}</li>
             {% endfor %}
         </ul>
   </ul>
