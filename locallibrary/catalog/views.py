@@ -39,6 +39,7 @@ def index(request):
 
 class BookListView(generic.ListView):
     model = Book
+    paginate_by = 10 #for pagination
     # template_name = 'book_list.html'
 
     # def get_queryset(self):
@@ -54,4 +55,3 @@ class BookListView(generic.ListView):
 
 class BookDetailView(generic.DetailView):
     model = Book
-    
