@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from catalog.models import Book, BookInstance, Author, Genre
+from django.views import generic
 
 def index(request):
     """View function for home page of site."""
@@ -34,12 +35,11 @@ def index(request):
      # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
 
-from django.views import generic
+# from django.views import generic
 
 class BookListView(generic.ListView):
     model = Book
-    # template_name = "book_list.html"
-
+    template_name = 'book_list.html'
     def get_queryset(self):
         return Book.objects.filter(title__icontains='war')[:5] # Get 5 books containing the title war
         # return Book.objects.all()[:5] # Get 5 books containing the title war
