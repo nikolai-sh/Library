@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div>
+  <h2>Author: </h2>
+
+  <p><strong> {{ author.first_name }} {{ author.last_name }}</strong> </p> 
+  <p><strong> Author books:</strong></p>
+    <ul>
+      {% if author.book_set.all %}
+        {% for book in author.book_set.all %}
+        <li>{{ book }}</li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+  <p><strong>Language:</strong> {{ author.book.language_set.lang }}</p>  
+  <p><strong>Genre:</strong> {{ author.genre.all|join:", " }}</p>  
+</div>
+{% endblock %}
