@@ -2,17 +2,22 @@
 
 {% block content %}
 <div>
-  <h2>Author: </h2>
+  <h2>Author:  {{ author.first_name }} {{ author.last_name }}</h2>
+  <p>{{ author.date_of_birth }} -
+    {% if author.date_of_death %}
+     {{ author.date_of_death }}
+    {% endif %}
+  </p>
 
-  <p><strong> {{ author.first_name }} {{ author.last_name }}</strong> </p> 
-  <p><strong> Author books:</strong></p>
+  <h4>Books:</h4>
     <ul>
       {% if author.book_set.all %}
         {% for book in author.book_set.all %}
-        <li style="margin-bottom: 10px;"><strong>"{{ book }}"</strong>
+        <li style="margin-bottom: 10px;"><font style="color:blue">"{{ book }}"</font>
           <ul style="list-style: none;">
-            <li>Language: {{ book.language.lang }}</li>
-            <li>Genre: {{ book.genre.all|join:", " }} </li>
+            <li>{{ book.summary }}</li>
+            <li><b>Language: </b> {{ book.language.lang }}</li>
+            <li><b>Genre:</b> {{ book.genre.all|join:", " }} </li>
           </ul>
         </li>
         {% endfor %}
