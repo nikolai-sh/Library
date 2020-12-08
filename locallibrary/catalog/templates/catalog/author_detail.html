@@ -9,11 +9,14 @@
     <ul>
       {% if author.book_set.all %}
         {% for book in author.book_set.all %}
-        <li>{{ book }}</li>
+        <li style="margin-bottom: 10px;"><strong>"{{ book }}"</strong>
+          <ul style="list-style: none;">
+            <li>Language: {{ book.language.lang }}</li>
+            <li>Genre: {{ book.genre.all|join:", " }} </li>
+          </ul>
+        </li>
         {% endfor %}
       {% endif %}
-    </ul>
-  <!-- <p><strong>Language:</strong> {{ author.book.language_set.lang }}</p>  
-  <p><strong>Genre:</strong> {{ author.genre.all|join:", " }}</p>   -->
+    </ul>  
 </div>
 {% endblock %}
