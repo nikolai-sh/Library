@@ -16,7 +16,7 @@ The main features that have currently been implemented are:
 * Librarians can renew reserved books
 
 ### № Module 
-   *  Exercises 
+   *  **Exercises** 
 
 1. Using models.
    * Create Language model. 
