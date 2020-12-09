@@ -15,11 +15,7 @@ The main features that have currently been implemented are:
 * Admin users can create and manage models. The admin has been optimised (the basic registration is present in admin.py, but commented out).
 * Librarians can renew reserved books
 
-### № Module 
-    *  **Exercises** 
 
-1. ###Using models.
-   * Create Language model. 
 2.  Django admin site.
    * For the BookInstance list view, add code to display the book, status, due back date, and id (rather than the default __str__() text).
    * Add an inline listing of Book items to the Author detail view using the same approach as we did for Book/BookInstance.
