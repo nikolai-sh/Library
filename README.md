@@ -18,15 +18,17 @@ The main features that have currently been implemented are:
 ## № Module 
    * Exercises 
 
-1. Creating a skeleton website.
+1. Using models.
    * Create Language model. 
-2. Using models.
+2.  Django admin site.
    * For the BookInstance list view, add code to display the book, status, due back date, and id (rather than the default __str__() text).
    * Add an inline listing of Book items to the Author detail view using the same approach as we did for Book/BookInstance.
-3. Django admin site.
+3. Creating our home page.
    * The LocalLibrary base template includes a title block. Override this block in the index template and create a new title for the page. 
    * Modify the view to generate counts for genres and books that contain a particular word (case insensitive), and pass the results to the context.
-
+4. Generic list and detail views.
+   * Create the author detail and list views required to complete the project. 
+   * The code required for the URL mappers and the views should be virtually identical to the Book list and detail views we created above.
 
 ## Quick Start
 
