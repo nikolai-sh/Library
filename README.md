@@ -15,8 +15,8 @@ The main features that have currently been implemented are:
 * Admin users can create and manage models. The admin has been optimised (the basic registration is present in admin.py, but commented out).
 * Librarians can renew reserved books
 
-# № Module 
-   * Exercises 
+### № Module 
+   * ### Exercises 
 
 1. Using models.
    * Create Language model. 
