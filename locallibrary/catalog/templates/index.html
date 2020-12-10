@@ -16,7 +16,7 @@
     <li><strong>Authors:</strong> {{ num_authors }}</li>
     <li><strong>Genre:</strong></li>
         <ul>
-            {% for genre, books in genre_books.items %}
+            {% for genre, books in genre_count_books.items %}
                 <!-- <li><strong>{{ genre }}</strong>: {{ books }} books</li> -->
                 <li><strong>{{ genre }}</strong>: {{ books }} book{{ books|pluralize }}</li>
             {% endfor %}

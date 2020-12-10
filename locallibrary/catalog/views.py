@@ -25,17 +25,23 @@ def index(request):
 
     # Create list of pairs ['Genre', 'Books']
     # num_genre_books = ([genre, books] for Book.objects.filter(genre__exact='genre').count()
-    genre_list = Genre.objects.all()
-    genre_books = {}
-    for genre in range(len(genre_list)):
-        genre_books[genre_list[genre].name] = Book.objects.filter(genre__name=genre_list[genre].name).count()
-
+    def genre_count_books():
+        '''
+            Return dict {'Genre': count_books}
+        '''
+        genre_list = Genre.objects.all()
+        genre_books = {}
+        
+        for genre in range(len(genre_list)):
+            genre_books[genre_list[genre].name] = Book.objects.filter(genre__name=genre_list[genre].name).count()
+        return genre_books
+    
     context = {
         'num_books': num_books,
         'num_instances': num_instances,
         'num_instances_available': num_instances_available,
         'num_authors': num_authors,
-        'genre_books': genre_books,
+        'genre_count_books': genre_count_books,
     }
 
      # Render the HTML template index.html with the data in the context variable
@@ -43,7 +49,7 @@ def index(request):
         request,
         'index.html', 
         context={'num_books':num_books,'num_instances':num_instances,'num_instances_available':num_instances_available,
-                'num_authors':num_authors, 'genre_books': genre_books,
+                'num_authors':num_authors, 'genre_count_books': genre_count_books,
                 'num_visits':num_visits}, # num_visits appended
     )
 # from django.views import generic
