@@ -20,15 +20,16 @@
           <li><a href="{% url 'authors' %}">All authors</a></li>
 
           {% if user.is_authenticated %}
-          <li>User: {{ user.get_username }}</li>
+          <li style="margin-top: 30px;">User: {{ user.get_username }}</li>
           <li><a href="{% url 'my-borrowed' %}">My Borrowed</a></li>
           <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
           {% else %}
           <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
           {% endif %} 
+          <hr style="margin-top: 30px;">
           {% if perms.catalog.can_mark_returned %}  
-          <li>Staff</li>
-          <li><a href="{% url 'all-borrowed' %}">My Borrowed</a></li>
+          <li style="margin-top: 30px">Staff</li>
+          <li><a href="{% url 'all-borrowed' %}">All Borrowed</a></li>
           {% endif %} 
         </ul>
     {% endblock %}
