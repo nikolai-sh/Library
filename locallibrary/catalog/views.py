@@ -19,7 +19,7 @@ def index(request):
     num_authors = Author.objects.all().count()
 
      # Number of visits to this view, as counted in the session variable.
-    num_visits=request.session.get('num_visits', 0)
+    num_visits = request.session.get('num_visits', 0)
     request.session['num_visits'] = num_visits+1
 
 
@@ -94,3 +94,12 @@ class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
     
     def get_queryset(self):
         return BookInstance.objects.filter(borrower=self.request.user).filter(status__exact='o').order_by('due_back')
+
+from django.contrib.auth.mixins import PermissionRequiredMixin
+
+class AllBorrowedBooksView(PermissionRequiredMixin, generic.ListView):
+    permission_required = 'catalog.can_mark_returned'
+    # Or multiple permissions
+    permission_required = ('catalog.can_mark_returned', 'catalog.can_edit')
+    # Note that 'catalog.can_edit' is just an example
+    # the catalog application doesn't have such permission!
