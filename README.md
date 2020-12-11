@@ -29,8 +29,9 @@ The main features that have currently been implemented are:
    * Create the author detail and list views required to complete the project. 
    * The code required for the URL mappers and the views should be virtually identical to the Book list and detail views we created above.
 5. Sessions framework.(Without exercises) 
-## TODO
 6. User authentication and permissions.
+   *  Create a page that is only visible for librarians,   that displays all   books that have been borrowed, and which includes the name of each borrower.
+## TODO
 7. Working with forms.
 8. Testing a Django web application.
 9. Deploying Django to production.
