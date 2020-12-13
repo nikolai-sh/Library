@@ -31,8 +31,9 @@ The main features that have currently been implemented are:
 5. Sessions framework.(Without exercises) 
 6. User authentication and permissions.
    *  Create a page that is only visible for librarians,   that displays all   books that have been borrowed, and which includes the name of each borrower.
-## TODO
 7. Working with forms.
+   * Create CRUD for Books.
+## TODO
 8. Testing a Django web application.
 9. Deploying Django to production.
 
