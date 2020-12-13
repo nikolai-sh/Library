@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+    {% if perms.catalog.can_mark_returned %}
+        <form action="" method="post">
+        {% csrf_token %}
+            <table>
+            {{ form.as_table }}
+            </table>
+            <input type="submit" value="Submit" />
+
+        </form>
+    {% else %}
+        <h3>You can't create or update books.</h3> 
+    {% endif %}   
+{% endblock %}
