@@ -13,7 +13,8 @@
     <ul>
       {% if author.book_set.all %}
         {% for book in author.book_set.all %}
-        <li style="margin-bottom: 10px;"><font style="color:blue">"{{ book }}"</font>
+        <li style="margin-bottom: 10px;"><font style="color:blue">
+          <a href="{{ book.get_absolute_url }}">"{{ book }}"</font></a>
           <ul style="list-style: none;">
             <li>{{ book.summary }}</li>
             <li><b>Language: </b> {{ book.language.lang }}</li>
