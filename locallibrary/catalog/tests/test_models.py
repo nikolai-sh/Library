@@ -34,9 +34,19 @@ class AuthorModelTest(TestCase):
         #This will also fail if the urlconf is not defined.
         self.assertEquals(author.get_absolute_url(),'/catalog/authors/1')
     
+    def test_last_name_label(self):      
+       author = Author.objects.get(id=1)
+       field_label = author._meta.get_field('last_name').verbose_name
+       self.assertEquals(field_label, 'last name')
+    
+    def test_date_of_birth_label(self):      
+       author = Author.objects.get(id=1)
+       field_label = author._meta.get_field('date_of_birth').verbose_name
+       self.assertEquals(field_label, 'date of birth')
+    
+    def test_last_max_length(self):
+        author = Author.objects.get(id=1)
+        max_length = author._meta.get_field('last_name').max_length
+        self.assertEquals(max_length, 100)
 
-    # Тесты для текстовых меток last_name и date_of_birth, 
-    # а также тест длины поля last_name были опущены. 
-    # Добавьте свою версию этих тестов,  
-    # соблюдая соглашение об именовании и следуя структуре логики,
-    #  представленной выше.
+
