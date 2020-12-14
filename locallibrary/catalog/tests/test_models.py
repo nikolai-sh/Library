@@ -91,3 +91,58 @@ class LanguageModelTest(TestCase):
         language = Language.objects.get(id=1)
         expected_object_name = '%s' % (language.lang)
         self.assertEquals(expected_object_name, str(language))
+
+
+class BookModelTest(TestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+        author = AuthorModelTest.setUpTestData()
+        language = LanguageModelTest.setUpTestData()
+        genre = GenreModelTest.setUpTestData()
+        book = Book.objects.create(title='Pandas', author=author, summary='Some text', 
+                                    isbn='2343234543234', language=language)
+        #  ManyToMany fields add to test object(first save object)
+        book.save()
+        book.genre.add(genre)
+
+    def test_title_label(self):
+        book = Book.objects.get(id=1)
+        field_label = Book._meta.get_field('title').verbose_name
+        self.assertEquals(field_label, 'title')
+    
+    def test_title_max_lenght(self):
+        book = Book.objects.get(id=1)
+        max_length = Book._meta.get_field('title').max_length
+        self.assertEquals(max_length, 200)
+    
+    def test_object_name_is_title(self):
+        book = Book.objects.get(id=1)
+        expected_object_name = '%s' % (book.title)
+        self.assertEquals(expected_object_name, str(book))
+    
+    def test_summary_label(self):
+        book = Book.objects.get(id=1)
+        field_label = Book._meta.get_field('summary').verbose_name
+        self.assertEquals(field_label, 'summary')
+    
+    def test_summary_max_lenght(self):
+        book = Book.objects.get(id=1)
+        max_length = Book._meta.get_field('summary').max_length
+        self.assertEquals(max_length, 1000)
+    
+    def test_isbn_label(self):
+        book = Book.objects.get(id=1)
+        field_label = Book._meta.get_field('isbn').verbose_name
+        self.assertEquals(field_label, 'ISBN')
+     
+
+    def test_isbn_max_length(self):
+        book = Book.objects.get(id=1)
+        max_length = Book._meta.get_field('isbn').max_length
+        self.assertEquals(max_length, 13)
+       
+    def test_get_absolute_url(self):
+        book = Book.objects.get(id=1)
+        self.assertEquals(book.get_absolute_url(), '/catalog/book/1')
+    
