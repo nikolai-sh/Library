@@ -33,8 +33,9 @@ The main features that have currently been implemented are:
    *  Create a page that is only visible for librarians,   that displays all   books that have been borrowed, and which includes the name of each borrower.
 7. Working with forms.
    * Create CRUD for Books.
-## TODO
 8. Testing a Django web application.
+   * Test all models and AuthorCreate views.
+## TODO
 9. Deploying Django to production.
 
 ## Quick Start
