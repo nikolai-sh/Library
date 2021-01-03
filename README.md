@@ -35,7 +35,6 @@ The main features that have currently been implemented are:
    * Create CRUD for Books.
 8. Testing a Django web application.
    * Test all models and AuthorCreate views.
-## TODO
 9. Deploying Django to production.
 
 ## Quick Start
